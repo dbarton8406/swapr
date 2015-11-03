@@ -1,4 +1,10 @@
 class RegistrationsController < ApplicationController
+  before_action :authenticate_user!, only: [:auth_demo]
+
+  def auth_demo
+    binding.pry
+    render plain: "You are a person we recognize. You are: #{current_user.username}!"
+  end
 
   def create
     @user = User.new(email: params[:email],
