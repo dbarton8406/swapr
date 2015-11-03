@@ -4,6 +4,12 @@ A simple file sharing service.
 
 ## API
 
+**Authentication Notes**:
+
+To make an authenticated request in any case other than registering
+or deleting an account, you must supply an `Access-Token` header with
+a valid access token. Otherwise, you'll receive a 401 Forbidden error.
+
 ### Registering an Account
 
 #### POST `/signup`
@@ -16,13 +22,29 @@ A simple file sharing service.
 
 **Response**:
 
-If the user was created succesfully,
+If the user was created successfully, you should receive status code 201 and ...
 
-..... Status Code and JSON
+```
+{
+  "user": {
+    "id": 8,
+    "username": "apifan",
+    "email": "such@api.wow.com",
+    "access_token": "9f5b8ebf876121c3fc4c0fa18a511e16"
+  }
+}
+```
 
-If the user could not be created,
+If the user could not be created, you should receive status code 422 and ...
 
-..... Status Code and JSON
+```
+{
+  "errors": [
+    "Email has already been taken",
+    "Username has already been taken"
+  ]
+}
+```
 
 ### Deleting an Account
 
