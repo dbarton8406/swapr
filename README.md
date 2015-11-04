@@ -66,3 +66,38 @@ Otherwise:
 not logged in
 
 .... status code and JSON
+
+### Logging In
+
+#### POST `/login`
+
+**Params**:
+
+`username`: String
+`password`: String 
+
+**Response**:
+
+If the user was created successfully, you should receive status code 201 and ...
+
+```
+{
+  "user": {
+    "id": 8,
+    "username": "apifan",
+    "email": "such@api.wow.com",
+    "access_token": "9f5b8ebf876121c3fc4c0fa18a511e16"
+  }
+}
+```
+
+If the user could not be created, you should receive status code 422 and ...
+
+```
+{
+  "errors": [
+    "Email has already been taken",
+    "Username has already been taken"
+  ]
+}
+```
