@@ -10,9 +10,7 @@ To make an authenticated request in any case other than registering
 or deleting an account, you must supply an `Access-Token` header with
 a valid access token. Otherwise, you'll receive a 401 Forbidden error.
 
-### Registering an Account
-
-#### POST `/signup`
+#### POST `/signup` - Registering an Account
 
 **Params**:
 
@@ -46,9 +44,7 @@ If the user could not be created, you should receive status code 422 and ...
 }
 ```
 
-### Deleting an Account
-
-#### DELETE `/signup`
+#### DELETE `/signup` - Deleting an Account
 
 **Params**:
 
@@ -73,9 +69,7 @@ Otherwise, you'll get status code 401 and ...
 }
 ```
 
-### Logging In
-
-#### POST `/login`
+#### POST `/login` - Logging In
 
 **Params**:
 
@@ -103,6 +97,12 @@ If the username wasn't found or password didn't match, you will receive status c
 {
   "errors": [
     "Could not find user for '$username' or wrong password."
-  o]
+  ]
 }
 ```
+
+#### POST `wishes` - Make a Wish
+
+#### GET `/wishes` - List Unfulfilled Wishes
+
+#### GET `/wishes/:id` - Get a Wish
