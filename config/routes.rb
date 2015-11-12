@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   post "/login", to: "registrations#login"
 
-  resources :wishes, except: [:new, :edit]
+  resources :wishes, except: [:new, :edit] do
+    resources :grants, only: [:create, :show, :index, :destroy]
+  end
 
 
   # You can have the root of your site routed with "root"

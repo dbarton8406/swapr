@@ -30,6 +30,16 @@ gem 'bcrypt', '~> 3.1.7'
 # Add Kaminari for pagination
 gem 'kaminari'
 
+# Add support for file uploads with paperclip.
+gem 'paperclip', '~> 4.3'
+
+# And let's store those uploads on Amazon S3 for sanity.
+gem 'aws-sdk-v1'
+
+# Use foreman to setup environment variables and run the app.
+## (Alternatives include: foreman, dotenv, figaro)
+gem 'foreman'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
