@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112154803) do
+ActiveRecord::Schema.define(version: 20151112164443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "grants", force: :cascade do |t|
+    t.integer  "user_id",                       null: false
+    t.integer  "wish_id",                       null: false
+    t.string   "gift_file_name"
+    t.string   "gift_content_type"
+    t.integer  "gift_file_size"
+    t.datetime "gift_updated_at"
+    t.integer  "download_count",    default: 0
+    t.text     "details"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
