@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Add Kaminari for pagination
 gem 'kaminari'
 
+# Add support for file uploads with paperclip.
+gem 'paperclip', '~> 4.3'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
