@@ -33,6 +33,9 @@ gem 'kaminari'
 # Add support for file uploads with paperclip.
 gem 'paperclip', '~> 4.3'
 
+# And let's store those uploads on Amazon S3 for sanity.
+gem 'aws-sdk-v1'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
