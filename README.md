@@ -57,15 +57,21 @@ If the user could not be created, you should receive status code 422 and ...
 
 **Response**:
 
-If successful:
+If successful, you'll receive status code 204 and ...
 
-.... status code and JSON
+```
+{
+  message: "User 'foo@bar.com' deleted."
+}
+```
 
-Otherwise:
+Otherwise, you'll get status code 401 and ...
 
-not logged in
-
-.... status code and JSON
+```
+{
+  error: "Invalid email ('foo@baz.com') or password."
+}
+```
 
 ### Logging In
 
@@ -78,7 +84,7 @@ not logged in
 
 **Response**:
 
-If the user was created successfully, you should receive status code 201 and ...
+If the user was logged in successfully, you should receive status code 200 and ...
 
 ```
 {
@@ -91,13 +97,12 @@ If the user was created successfully, you should receive status code 201 and ...
 }
 ```
 
-If the user could not be created, you should receive status code 422 and ...
+If the username wasn't found or password didn't match, you will receive status code 401 and ...
 
 ```
 {
   "errors": [
-    "Email has already been taken",
-    "Username has already been taken"
-  ]
+    "Could not find user for '$username' or wrong password."
+  o]
 }
 ```
