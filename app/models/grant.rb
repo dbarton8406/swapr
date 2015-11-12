@@ -2,7 +2,7 @@ class Grant < ActiveRecord::Base
   belongs_to :wish
   belongs_to :user
 
-  has_attachment :gift
+  has_attached_file :gift
   validates :gift, attachment_presence: true
   validates_attachment_file_name :gift, matches: [
     /mp3\Z/, /ogg\Z/, /flac\Z/, /pdf\Z/, /epub\Z/, /djvu\Z/,
