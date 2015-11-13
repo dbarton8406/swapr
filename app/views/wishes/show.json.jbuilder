@@ -1,1 +1,1 @@
-@wish.extract! :media_type, :title, :description, :fulfilled
+json.extract! @wish, :media_type, :title, :description, :fulfilled
