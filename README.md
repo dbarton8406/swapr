@@ -101,8 +101,49 @@ If the username wasn't found or password didn't match, you will receive status c
 }
 ```
 
-#### POST `wishes` - Make a Wish
+#### POST `/wishes` - Make a Wish
+
+**Params:**
+* `wish[media_type]`: One of (`album`, `series`, `movie`, `ebook`, `gif`)
+* `wish[title]`: A string describing the request
+
+Returns status code 201 and ...
+
+```
+{
+  "id": 4,
+  "user_id": 1,
+  "title": "Floating Points - Elaenia",
+  "media_type": "album",
+  "description": null
+}
+```
 
 #### GET `/wishes` - List Unfulfilled Wishes
 
-#### GET `/wishes/:id` - Get a Wish
+#### GET `/wishes/:wish_id` - Get a Wish
+
+#### POST `/wishes/:wish_id/grants` - Upload a Grant
+
+Make sure to use `multipart/form-data` encoding for the file!
+
+**Params:**
+* `upload` - A file with one of the following extensions:
+             `['mp3', 'ogg', 'flac', 'pdf' ,'epub', 'djvu',
+               'gif', 'gifv', 'mp4', 'mkv', 'avi', 'webm']`
+
+Returns status code 201 and ...
+
+```
+{
+  "id": 5,
+  "title": "Floating Points - Elaenia",
+  "upload": {
+    "uploader": "brit",
+    "file_url": "http://tiy-atl-swapr-test.s3.amazonaws.com/grants/gifts/000/000/004/original/katsplode.gif?1447384055",
+    "filename": "katsplode.gif",
+    "filesize": 2076693,
+  },
+  "details": null
+}
+```
