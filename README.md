@@ -1,6 +1,8 @@
 ## Swapr
 
-A simple file sharing service. 
+A simple file sharing service, hosted [on Heroku][app].
+
+[app]: https://infinite-tor-5730.herokuapp.com/
 
 ## API
 
