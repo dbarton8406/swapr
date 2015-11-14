@@ -40,6 +40,9 @@ gem 'aws-sdk-v1'
 ## (Alternatives include: foreman, dotenv, figaro)
 gem 'foreman'
 
+# Add rack-cors for maximum API joy!
+gem 'rack-cors'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
