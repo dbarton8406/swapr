@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -39,6 +39,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # Add some Paperclip config logic.
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
@@ -46,5 +47,15 @@ Rails.application.configure do
       secret_access_key: ENV["S3_SECRET_KEY"],
       bucket: ENV["S3_TEST_BUCKET"]
     }
+  }
+
+  # Add some SMTP settings for ActionMailer.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mandrillapp.com',
+    port: 587,
+    user_name: 'brit@theironyard.com',
+    password: ENV["MANDRILL_API_KEY"],
+    enable_starttls_auto: true
   }
 end
