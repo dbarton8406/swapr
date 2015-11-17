@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :grants, only: [:create, :show, :index, :destroy]
   end
 
+  post "/compute_prime", to: "primes#prime"
+
+  mount Resque::Server.new, at: "jobs"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
