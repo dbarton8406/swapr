@@ -56,6 +56,7 @@ Rails.application.configure do
     port: 587,
     user_name: 'brit@theironyard.com',
     password: ENV["MANDRILL_API_KEY"],
+    authentication: 'plain',
     enable_starttls_auto: true
   }
 end
