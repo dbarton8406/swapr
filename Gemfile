@@ -43,6 +43,9 @@ gem 'foreman'
 # Add rack-cors for maximum API joy!
 gem 'rack-cors'
 
+# Add resque for background job joy!
+gem 'resque'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
