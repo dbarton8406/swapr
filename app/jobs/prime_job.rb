@@ -3,7 +3,7 @@ class PrimeJob < ActiveJob::Base
 
   def perform(user, count)
     primer = Primes.new
-    result = primer.nth_prime(count)
+    result = primer.nth_prime(count.to_i)
     WelcomeMailer.prime(user, count, result)
   end
 end
